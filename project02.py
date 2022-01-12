@@ -51,43 +51,61 @@ while True:
     
 while True:
     list = [">Type 1", ">HP", ">Attack", ">Defense", ">Sp. Atk", ">Sp. Def"]
-    print("\nChoices:")
-    print(list[0])
-    print(list[1])
-    print(list[2])
-    print(list[3])
-    print(list[4])
-    print(list[5])
+    for x in list:
+        print(x)
+    
+
 
     if Bulbasaur > Squirtle:
-        input("What would you like to know about Bulbasaur? -")
+        answer2= input("What would you like to know about Bulbasaur? -")
         break
     if Squirtle > Charmander:
-        input("What would you like to know about Squirtle? -")
+        answer2=input("What would you like to know about Squirtle? -")
         break
     if Charmander > Chikorita:
-        input("What would you like to know about Charmander? -")
+        answer2=input("What would you like to know about Charmander? -")
         break
     if Chikorita > Cyndaquil:
-        input("What would you like to know about Chikorita? -")
+        answer2=input("What would you like to know about Chikorita? -")
         break
     if Cyndaquil > Totodile:
-        input("What would you like to know about Cyndaquil? -")
+        answer2=input("What would you like to know about Cyndaquil? -")
         break
     if Totodile > Bulbasaur:
-        input("What would you like to know about Totodile? -")
+        answer2=input("What would you like to know about Totodile? -")
     else:
         print("Invalid Answer")
         break
 
+# response= name of the pokemon
+# answer2= attack, hp, whatever
+
 with open("pokedex.txt") as pokedata:
-    for x in csv.DictReader(pokedata):
-        if pokedict["Name"] == pokename:
+    for pokedict in csv.DictReader(pokedata):
+        if pokedict["Name"] == response:
             if pokedict["Type 1"]:
-                print("{pokedict['Name]} is a {pokedict['Type 1']} type!")
+                print(f"{pokedict['Name']} is a {pokedict[answer2]} type!")
+                break
+            elif answer2 == "HP":
+                print(f"{pokedict['Name']} has an HP stat of {pokedict[answer2]}!")
+                break
+            elif answer2 == "Attack":
+                print(f"{pokedict['Name']} has an Attack stat of {pokedict['Attack']}")
+                break
+            elif answer2 == "Defense":
+                print(f"{pokedict['Name']} has a Defense stat of {pokedict['Defense']}")
+                break
+            elif answer2 == "Sp. Atk":
+                print(f"{pokedict['Name']} has a Sp.Atk stat of {pokedict['Sp. Atk']}")
+                break
+            elif answer2 == "Sp. Def":
+                print(f"{pokedict['Name']} has a Sp. Def stat of {pokedict['Sp. Def']}")
+                break
+            else:
+                print("Invalid Answer")
 
             
-            
+               
             
      
 
